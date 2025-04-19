@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account Dashboard</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f9ecec; /* Pastel pink */
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff869e; /* Soft red */
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    header .nav-links li a {
+      text-decoration: none;
+      color: #6b6b6b;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header .nav-links li a:hover {
+      color: #ff869e;
+    }
+
+    header .nav-icons a {
+      color: #6b6b6b;
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    header .nav-icons a:hover {
+      color: #ff869e;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 5px;
+      margin-right: 5px;
+    }
+
+    .fcolor {
+      color: red;
+    }
+
+    .fsiize {
+      font-size: 20px;
+    }
+
+    /* Main Dashboard Container */
+    .dashboard-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+      flex: 1; /* Make the content area take up remaining space */
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 8px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #ff869e;
+      color: white;
+    }
+
+    /* Main Content */
+    .content {
+      width: 75%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h2 {
+      margin-top: 0;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .orders-table, .wishlist-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .orders-table th, .wishlist-table th {
+      background-color: #f4f4f4;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .orders-table td, .wishlist-table td {
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Profile Picture */
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .profile-actions {
+      margin-top: 10px;
+    }
+
+    .profile-actions button {
+      padding: 8px 16px;
+      background-color: #ff869e;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .profile-actions button:hover {
+      background-color: #e65c73;
+    }
+
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #f9ecec;
+      border-top: 1px solid #ddd;
+      margin-top: auto; 
+    }
+
+    .footer-section {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-contact p {
+      margin: 10px 0;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* Alert */
+    .alert {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .alert.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .alert.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    /* Edit Form */
+    .edit-form input {
+      padding: 8px;
+      margin: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .edit-form button {
+      padding: 10px;
+      background-color: #ff869e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .edit-form button:hover {
+      background-color: #e65c73;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+        <img src="frost-heaven.jpg" alt="frost-heaven.jpg" width="100" height="100">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button>🔍</button>
+    </div>
+    
+    <div class="nav-icons">
+        <a href="#"><span>❤</span></a>
+        <a href="#"><span>🛒</span></a>
+        <a href="#"><span>👤</span></a>
+    </div>
+</header>
+  </header>
+
+  <h1 class="fcolor font-size"><center>Welcome to Your Account Dashboard</center></h1>
+  
+  <!-- Main Dashboard Container -->
+  <div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3><U>Account Navigation</U></h3>
+      <ul>
+        <li><a href="#personal-info">Personal Information</a></li>
+        <li><a href="#orders">My Orders</a></li>
+        <li><a href="#wishlist">My Wishlist</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+      <!-- Alert for Dynamic Updates -->
+      <div id="alertMessage" class="alert"></div>
+
+      <!-- Personal Information Section -->
+      <div class="section" id="personal-info">
+        <h3>Personal Information</h3>
+    
+        <!-- Display User Info -->
+        <div id="personal-info-display">
+          <p>Name: <span id="userName"></span></p>
+          <p>Email: <span id="userEmail"></span></p>
+          <div class="profile-pic">
+            <label for="profilePic">Profile Picture:</label>
+            <img id="profilePic" src="" alt="Profile Picture" width="50" height="80">
+            <button onclick="editPersonalInfo()">Edit Information</button>
+            <div class="profile-actions">
+              <button onclick="openFileDialog()">Change Profile Picture</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Edit Form -->
+        <div id="personal-info-edit" style="display:none;">
+          <div class="edit-form">
+            <input type="text" id="edit-name" name="name" placeholder="Name">
+            <input type="email" id="edit-email" name="email" placeholder="Email address">
+            <button onclick="savePersonalInfo()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Orders Section -->
+      <div class="section" id="orders">
+        <h3>My Orders</h3>
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Product Name</th>
+              
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#001</td>
+              <td>chocolate ice-cream</td>
+              
+              <td>Shipped</td>
+            </tr>
+            <tr>
+              <td>#002</td>
+              <td>vanilla ice-cream</td>
+              
+              <td>Processing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- My Wishlist Section -->
+      <div class="section" id="wishlist">
+        <h3>My Wishlist</h3>
+        <table class="wishlist-table" id="wishlistTable">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Added On</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="wishlistItem1">
+              <td>Product A</td>
+              <td>01/01/2025</td>
+              <td>$50.00</td>
+              <td><button onclick="removeFromWishlist('wishlistItem1')">Remove</button></td>
+            </tr>
+            <tr id="wishlistItem2">
+              <td>Product C</td>
+              <td>10/01/2025</td>
+              <td>$25.00</td>
+              <td><button onclick="removeFromWishlist('wishlistItem2')">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div> <!-- End Content -->
+
+  </div> <!-- End Dashboard Container -->
+
+  <!-- Footer -->
+  <footer class="footer">
+        <div class="footer-section">
+            <h3>FROST-HAVEN</h3>
+            <p>We're always in search for talented and motivated people. Don't be shy introduce yourself!</p>
+            <a href="contact us.html" class="contact-button">Contact With Us</a>
+        </div>
+        <div class="footer-section">
+            <h3>My Account</h3>
+            <ul>
+                <li><a href="my account.html">My Account</a></li>
+                <li>Order History</li>
+                <li>Wish List</li>
+                <li>Newsletter</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Information</h3>
+            <ul>
+                <li>About Us</li>
+                <li>delivery Information</li>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Extras</h3>
+            <ul>
+                <li>Brands</li>
+                <li>Gift Certificates</li>
+                <li>Affiliate</li>
+                <li>Specials</li>
+            </ul>
+        </div>
+        <div class="footer-section footer-contact">
+            <h3>Contact Us</h3>
+            <p>📞 +94 776958456</p>
+            <p>📧 rainbow@example.com</p>
+            <p>📍 Sri Lanka</p>
+            <div class="social-icons">
+                <a href="#">📷</a>
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="footer-bottom">
+      © 2025 My Website. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // On page load, retrieve user data from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      const name = localStorage.getItem('userName');
+      const email = localStorage.getItem('userEmail');
+      const profilePic = localStorage.getItem('profilePic');
+
+      // If the user data exists, update the personal info section
+      if (name && email) {
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userEmail').textContent = email;
+        if(profilePic){
+          document.getElementById('profilePic').src = profilePic;
+        }
+      } else {
+        document.getElementById('userName').textContent = 'Not Available';
+        document.getElementById('userEmail').textContent = 'Not Available';
+      }
+    });
+
+    // Edit Personal Info
+    function editPersonalInfo() {
+      document.getElementById('personal-info-display').style.display = 'none';
+      document.getElementById('personal-info-edit').style.display = 'block';
+
+      const name = localStorage.getItem('userName');
+      const email = localStorage.getItem('userEmail');
+      
+      // Populate the form with existing values
+      document.getElementById('edit-name').value = name || '';
+      document.getElementById('edit-email').value = email || '';
+    }
+
+    // Save Personal Info
+    function savePersonalInfo() {
+      const newName = document.getElementById('edit-name').value;
+      const newEmail = document.getElementById('edit-email').value;
+
+      // Update the localStorage with the new values
+      localStorage.setItem('userName', newName);
+      localStorage.setItem('userEmail', newEmail);
+
+      // Update the profile display
+      document.getElementById('userName').textContent = newName;
+      document.getElementById('userEmail').textContent = newEmail;
+
+      // Hide edit form and show the display again
+      document.getElementById('personal-info-display').style.display = 'block';
+      document.getElementById('personal-info-edit').style.display = 'none';
+
+      // Show success message
+      showAlert('Personal information updated successfully!', 'success');
+    }
+
+    // Show alert
+    function showAlert(message, type) {
+      const alertMessage = document.getElementById('alertMessage');
+      alertMessage.style.display = 'block';
+      alertMessage.textContent = message;
+      alertMessage.className = 'alert ' + type;
+    }
+
+    // Open file dialog for profile picture
+    function openFileDialog() {
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = 'image/*'; // Limit to images
+
+      fileInput.onchange = function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            // Update the profile picture with the new file
+            const newProfilePic = e.target.result;
+            localStorage.setItem('profilePic', newProfilePic);
+            document.getElementById('profilePic').src = newProfilePic;
+            showAlert('Profile picture updated successfully!', 'success');
+          };
+          reader.readAsDataURL(file); // Convert file to a base64 string
+        }
+      };
+
+      fileInput.click(); // Open the file picker dialog
+    }
+
+    // Remove an item from the wishlist
+    function removeFromWishlist(itemId) {
+      const item = document.getElementById(itemId);
+      item.remove();
+
+      // Show success message
+      showAlert('Item removed from wishlist.', 'success');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #fce4ec;
+}
+
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f9ecec;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff869e;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header .nav-links li a {
+    text-decoration: none;
+    color: #6b6b6b;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header .nav-links li a:hover {
+    color: #ff869e;
+}
+
+header .nav-icons a {
+    color: #6b6b6b;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+header .nav-icons a:hover {
+    color: #ff869e;
+}
+
+.search-cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.order-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buy-now {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background:#ff869e;;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.footer-section {
+    background-color: #f9ecec;
+    padding: 2rem 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.footer-logo button {
+    padding: 0.5rem 1rem;
+    background-color:  #ff869e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-logo button:hover {
+    background-color:  #ff869e;
+}
+
+.footer-grid h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-grid ul li {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.contact-us ul {
+    margin-bottom: 1rem;
+}
+
+.contact-us .social-icons a {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color:  #ff869e;
+    text-decoration: none;
+}
+
+.contact-us .social-icons a:hover {
+    color:  #ff869e;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    color:  #ff869e;
+    margin-top: 2rem;
+}

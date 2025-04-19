@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Now</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f9ecec; /* Pastel pink */
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff869e; /* Soft red */
+    }
+
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    header .nav-links li a {
+      text-decoration: none;
+      color: #6b6b6b;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header .nav-links li a:hover {
+      color: #ff869e;
+    }
+
+    header .nav-icons a {
+      color: #6b6b6b;
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    header .nav-icons a:hover {
+      color: #ff869e;
+    }
+
+    .register-container {
+      max-width: 600px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+    }
+
+    label {
+      text-align: left;
+    }
+
+    button {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:active {
+      background-color: red;
+    }
+
+    /* Footer Styles */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #f9ecec;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer-section {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-contact p {
+      margin: 10px 0;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .social-icons a {
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .alert {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+        <img src="frost-heaven.jpg" alt="frost-heaven.jpg" width="100" height="100">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button>🔍</button>
+    </div>
+    
+    <div class="nav-icons">
+        <a href="#"><span>❤</span></a>
+        <a href="#"><span>🛒</span></a>
+        <a href="#"><span>👤</span></a>
+    </div>
+</header>
+
+  <main>
+    <div class="register-container">
+      <h1>Register Now</h1>
+      <form method="post" action="register.php">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    
+    
+      <!-- Alert Message (for success or error) -->
+      <div id="alertMessage" class="alert" style="display:none;"></div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>FROST-HAVEN</h3>
+      <p>We're always in search for talented and motivated people. Don't be shy introduce yourself!</p>
+      <a href="contact us.html" class="contact-button">Contact With Us</a>
+    </div>
+    <div class="footer-section">
+      <h3>My Account</h3>
+      <ul>
+        <li><a href="my account.html">My Account</a></li>
+        <li>Order History</li>
+        <li>Wish List</li>
+        <li>Newsletter</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Information</h3>
+      <ul>
+        <li>About Us</li>
+        <li>Delivery Information</li>
+        <li>Privacy Policy</li>
+        <li>Terms & Conditions</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Extras</h3>
+      <ul>
+        <li>Brands</li>
+        <li>Gift Certificates</li>
+        <li>Affiliate</li>
+        <li>Specials</li>
+      </ul>
+    </div>
+    <div class="footer-section footer-contact">
+      <h3>Contact Us</h3>
+      <p>📞 +94 776958456</p>
+      <p>📧 rainbow@example.com</p>
+      <p>📍 Sri Lanka</p>
+      <div class="social-icons">
+        <a >📷</a>
+        <a >📘</a>
+        <a >🐦</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    © 2025 Your Website. All rights reserved.
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simulate account creation
+      setTimeout(() => {
+        // Simulating successful registration
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.style.display = 'block';
+        alertMessage.className = 'alert alert-success';
+        alertMessage.textContent = 'Account created successfully! Please log in now.';
+        
+        // Redirect to login page after 2 seconds
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000);
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>

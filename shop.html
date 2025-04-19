@@ -1,0 +1,250 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Shop</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Sky Summer</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="frost-heaven.jpg" alt="frost-heaven.jpg" width="100" height="100">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button>🔍</button>
+        </div>
+        
+        <div class="nav-icons">
+            <a href="#"><span>❤</span></a>
+            <a href="#"><span>🛒</span></a>
+            <a href="login.html"><span>👤</span></a>
+        </div>
+    </header>
+
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="chocolate_ice_cream.jpg" alt="Chocolate Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>Chocolate Ice Cream</b></td>
+                <td><b>Rs.30/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="vanila.jpg" alt="vanila Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>Vanilla Ice Cream</b></td>
+                <td><b>Rs.20/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="blueberry.jpg" alt="blueberry Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>blueberry Ice Cream</b></td>
+                <td><b>Rs.80/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="strawberry.jpg" alt="strawberry Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>strawberry Ice Cream</b></td>
+                <td><b>Rs.80/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="mixfruit.jpg" alt="MixFruit Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>Mix Fruit Ice Cream</b></td>
+                <td><b>Rs.60/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="oreo.jpg" alt="oreo Ice Cream">
+                        <span class="in-stock">In Stock</span>
+                    </div>
+                </td>
+                <td><b>oreo Ice Cream</b></td>
+                <td><b>Rs.80/-</b></td>
+                <td>
+                    <button class="buy-button" onclick="location.href='orderform.html'">Buy Now</button>
+                    <div class="icons">
+                        <a href="#"><span>❤</span></a>
+                        <a href="#"><span>🛒</span></a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <section class="newsletter-section">
+        <p>GET LATEST FROST-HEAVEN UPDATES</p>
+        <h2>Subscribe Our Newsletter</h2>
+        <div class="newsletter-form">
+        <form action="subscribe.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+           
+        </div>
+    </section>
+
+    <section class="statistics-section">
+        <div class="stat-box">
+            <h3>5000 +</h3>
+            <p>Successfully Trained</p>
+        </div>
+        <div class="stat-box">
+            <h3>1000 +</h3>
+            <p>Certification sellers</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <img src="frost-heaven.jpg" alt="frost-heaven.jpg" width="100" height="100">
+                <p>We're always in search for talented and motivated people. Don't be shy, introduce yourself!</p>
+                <button onclick="contactUs()">Contact With Us</button>
+            </div>
+            <div>
+                <li><a href="my account.html">My Account</a></li>
+                <ul>
+                    <li>My Account</li>
+                    <li>Order History</li>
+                    <li>Wish List</li>
+                    <li>Newsletter</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Information</h4>
+                <ul>
+                    <li>About Us</li>
+                    <li>Delivery Information</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms & Conditions</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Extras</h4>
+                <ul>
+                    <li>Brands</li>
+                    <li>Gift Certificates</li>
+                    <li>Affiliate</li>
+                    <li>Specials</li>
+                </ul>
+            </div>
+            <div class="contact-us">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>📞 +94 776958456</li>
+                    <li>📧 rainbow@example.com</li>
+                    <li>📍 Sri Lanka</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#">🌐</a>
+                    <a href="#">📘</a>
+                    <a href="#">🐦</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2025 Your Website. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
